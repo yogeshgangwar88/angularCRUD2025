@@ -3,11 +3,12 @@ import { UserSignupComponent } from '../user-signup/user-signup.component';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Usermodel } from '../../models/userinterface';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-user-login',
   standalone: true,
-  imports: [RouterLink, FormsModule],
+  imports: [RouterLink, FormsModule, CommonModule],
   templateUrl: './user-login.component.html',
   styleUrl: './user-login.component.scss',
 })

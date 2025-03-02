@@ -1,0 +1,6 @@
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  /* Your desired styles here */
+  border: 1px solid red; /* Example: Red border to indicate an invalid input */
+  background-color: #fdd; /* Example: Light red background */
+}
