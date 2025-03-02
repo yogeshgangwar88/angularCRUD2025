@@ -176,15 +176,21 @@
                   </div>
                   }
 
-                  <div class="d-grid">
-                    <button
-                      (click)="signup()"
-                      class="btn btn-primary btn-lg"
-                      type="button"
-                      [disabled]="signupform.invalid"
-                    >
-                      Sign Up
-                    </button>
+                  <div class="">
+                    <div>
+                      <button (click)="back()" class="btn btn-secondary">
+                        Back
+                      </button>
+                      <button
+                        (click)="signup()"
+                        class="btn btn-primary"
+                        type="button"
+                        [disabled]="signupform.invalid"
+                        style="float: right"
+                      >
+                        Sign Up
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

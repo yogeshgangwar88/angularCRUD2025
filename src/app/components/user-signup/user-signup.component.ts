@@ -1,5 +1,5 @@
 import { NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormControl,
@@ -7,6 +7,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Router, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-user-signup',
@@ -15,7 +16,8 @@ import {
   templateUrl: './user-signup.component.html',
   styleUrl: './user-signup.component.scss',
 })
-export class UserSignupComponent {
+export class UserSignupComponent implements OnInit {
+  signupform: any;
   firstName = new FormControl('', [
     Validators.required,
     Validators.minLength(4),
@@ -33,15 +35,17 @@ export class UserSignupComponent {
   ]);
   language = new FormControl('E', [Validators.required]);
   iAgree = new FormControl(false);
-
-  signupform = new FormGroup({
-    firstName: this.firstName,
-    lname: this.lastName,
-    gender: this.gender,
-    password: this.password,
-    language: this.language,
-    iAgree: this.iAgree,
-  });
+  constructor(private routes: Router) {}
+  ngOnInit(): void {
+    this.signupform = new FormGroup({
+      firstName: this.firstName,
+      lname: this.lastName,
+      gender: this.gender,
+      password: this.password,
+      language: this.language,
+      iAgree: this.iAgree,
+    });
+  }
 
   signup() {
     console.log(this.signupform.value);
@@ -60,5 +64,8 @@ export class UserSignupComponent {
     } else {
       return null;
     }
+  }
+  back() {
+    this.routes.navigateByUrl('/userlogin');
   }
 }
