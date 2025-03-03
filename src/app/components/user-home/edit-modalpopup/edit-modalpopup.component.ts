@@ -1,11 +1,4 @@
-import {
-  Component,
-  DoCheck,
-  Inject,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -64,5 +57,8 @@ export class EditModalpopupComponent implements OnInit {
   }
   closemodal() {
     this.dialogRef.close();
+  }
+  submitform(fvalue: any) {
+    console.log(fvalue);
   }
 }

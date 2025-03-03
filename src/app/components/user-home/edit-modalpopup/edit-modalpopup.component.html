@@ -1,71 +1,83 @@
-<mat-card class="example-card" appearance="outlined">
-  <mat-card-header>
-    <mat-card-title>Edit User</mat-card-title>
-    <mat-card-subtitle></mat-card-subtitle>
-  </mat-card-header>
-  <hr />
-  <mat-card-content>
-    <form [formGroup]="userForm" #userFormt>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          [formControl]="email"
-          class="form-control"
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="first_name">First Name</label>
-        <input
-          type="text"
-          id="first_name"
-          [formControl]="first_name"
-          class="form-control"
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="last_name">Last Name</label>
-        <input
-          type="text"
-          id="last_name"
-          [formControl]="last_name"
-          class="form-control"
-        />
-      </div>
-
-      <div class="row col-md-12" style="margin-top: 3px">
-        <div class="col-md-4">
-          <img
-            [src]="imgurl"
-            alt="Avatar"
-            style="height: 65px; width: 65px"
-            id="avatarImage"
-          />
-        </div>
-        <div class="d-flex col-md-8 align-items-end">
+<div>
+  <form
+    [formGroup]="userForm"
+    #userFormt
+    (ngSubmit)="submitform(userForm.value)"
+  >
+    <mat-card class="example-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Edit User</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-header>
+      <hr />
+      <mat-card-content>
+        <div class="form-group">
+          <label for="email">Email</label>
           <input
-            type="file"
-            accept="image/*"
-            (change)="Imagechange($event)"
-            [formControl]="avatar"
+            type="email"
+            id="email"
+            [formControl]="email"
             class="form-control"
           />
         </div>
-      </div>
-    </form>
-  </mat-card-content>
-  <mat-card-actions>
-    <div class="row col-md-12">
-      <div class="col-md-4">&nbsp;</div>
-      <div class="col-md-8">
-        <button type="button" (click)="closemodal()" class="btn btn-secondary">
-          Close
-        </button>
-        <button type="submit" class="btn btn-success float-end">Submit</button>
-      </div>
-    </div>
-  </mat-card-actions>
-</mat-card>
+
+        <div class="form-group">
+          <label for="first_name">First Name</label>
+          <input
+            type="text"
+            id="first_name"
+            [formControl]="first_name"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input
+            type="text"
+            id="last_name"
+            [formControl]="last_name"
+            class="form-control"
+          />
+        </div>
+
+        <div class="row col-md-12" style="margin-top: 3px">
+          <div class="col-md-4">
+            <img
+              [src]="imgurl"
+              alt="Avatar"
+              style="height: 65px; width: 65px"
+              id="avatarImage"
+            />
+          </div>
+          <div class="d-flex col-md-8 align-items-end">
+            <input
+              type="file"
+              accept="image/*"
+              (change)="Imagechange($event)"
+              [formControl]="avatar"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="row col-md-12">
+          <div class="col-md-4">&nbsp;</div>
+          <div class="col-md-8">
+            <button
+              type="button"
+              (click)="closemodal()"
+              class="btn btn-secondary"
+            >
+              Close
+            </button>
+            <button type="submit" class="btn btn-success float-end">
+              Submit
+            </button>
+          </div>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
